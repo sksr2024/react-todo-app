@@ -1,21 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from "react";
+import { ColorfulMessage } from "./components/ColorfulMessage";
 
-function App() {
-  const [message, setMessage] = useState('')
-
-  useEffect(() => {
-    fetch('/api/message')
-      .then(res => res.json())
-      .then(data => setMessage(data.message))
-  }, [])
-
+export const App = () => {
+  const [num, setNum] = useState(0);
+  const onClickButton = () => {
+    setNum((prev) => prev + 1);
+    setNum((prev) => prev + 1);
+  };
   return (
-    <div>
-      <h1>React + Docker Compose Sample</h1>
-      <h2>このシステムのひな形はChatGPTで作成してみました</h2>
-      <p>API Message: {message}</p>
-    </div>
-  )
-}
-
-export default App
+    <>
+      <h1 style={{ color: "red" }}>こんにちは!</h1>
+      <ColorfulMessage color="blue">お元気ですか？</ColorfulMessage>
+      <ColorfulMessage color="green">元気です！</ColorfulMessage>
+      <button onClick={onClickButton}>カウントアップ</button>
+      <p>{num}</p>
+    </>
+  );
+};
