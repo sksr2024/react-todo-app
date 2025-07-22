@@ -1,9 +1,8 @@
-export const ColorfulMessage = ({color, children}) => {
-    const contentStyle = {
+export const ColorfulMessage = ({ color, children }) => {
+  console.log('--ColorfulMessage--');
+  const contentStyle = {
     color,
-    fontSize: "18px",
+    fontSize: '18px',
   };
-  return (
-      <p style={contentStyle}>{children}</p>
-  );
+  return <p style={contentStyle}>{children}</p>;
 };
