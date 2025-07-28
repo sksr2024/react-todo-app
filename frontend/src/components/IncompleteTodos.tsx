@@ -1,4 +1,12 @@
-export const IncompleteTodos = (props) => {
+import React from "react";
+
+interface Props {
+  todos: string[];
+  onClickComplete: (index: number) => void;
+  onClickDelete: (index: number) => void;
+}
+
+export const IncompleteTodos = (props: Props) => {
   const { todos, onClickComplete, onClickDelete } = props;
 
   return (

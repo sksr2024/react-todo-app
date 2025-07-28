@@ -1,4 +1,11 @@
-export const CompleteTodos = (props) => {
+import React from "react";
+
+interface Props {
+  todos: string[];
+  onClickBack: (index: number) => void;
+}
+
+export const CompleteTodos = (props: Props) => {
   const { todos, onClickBack } = props;
   return (
     <div className="complete-area">

@@ -1,3 +1,5 @@
+import React from "react";
+
 const style = {
   backgroundColor: "#c6e5d9",
   width: "400px",
@@ -7,7 +9,14 @@ const style = {
   borderRadius: "8px"
 };
 
-export const InputTodo = (props) => {
+type Props = {
+  todoText: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick: () => void;
+  disabled: boolean;
+};
+
+export const InputTodo: React.FC<Props> = (props) => {
   const { todoText, onChange, onClick, disabled } = props;
 
   return (

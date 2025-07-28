@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import { InputTodo } from './components/InputTodo';
 import { IncompleteTodos } from './components/IncompleteTodos';
 import { CompleteTodos } from './components/CompleteTodos';
 
-export const Todo = () => {
-  const [todoText, setTodoText] = useState('');
-  const [incompleteTodos, setIncompleteTodos] = useState([]);
-  const [completeTodos, setCompleteTodos] = useState([]);
+export const Todo: React.FC = () => {
+  const [todoText, setTodoText] = useState<string>('');
+  const [incompleteTodos, setIncompleteTodos] = useState<string[]>([]);
+  const [completeTodos, setCompleteTodos] = useState<string[]>([]);
 
-  const onChangeTodoText = (e) => {
+  const onChangeTodoText = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoText(e.target.value);
   };
 
@@ -20,13 +20,13 @@ export const Todo = () => {
     setTodoText('');
   };
 
-  const onClickDelete = (index) => {
+  const onClickDelete = (index: number) => {
     const newTodos = [...incompleteTodos];
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
   };
 
-  const onClickComplete = (index) => {
+  const onClickComplete = (index: number) => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
 
@@ -35,7 +35,7 @@ export const Todo = () => {
     setCompleteTodos(newCompleteTodos);
   };
 
-  const onClickBack = (index) => {
+  const onClickBack = (index: number) => {
     const newCompleteTodos = [...completeTodos];
     newCompleteTodos.splice(index, 1);
 
